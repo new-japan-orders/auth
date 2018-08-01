@@ -9,5 +9,10 @@
             "email": "yamaji_daisuke@1stbit.co.jp"
         }
     ],
+    "autoload": {
+        "psr-4": {
+          "NewJapanOrders\\Auth\\": "src/"
+        }
+    },
     "require": {}
 }
