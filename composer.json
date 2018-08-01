@@ -1,0 +1,13 @@
+{
+    "name": "new-japan-orders/auth",
+    "description": "standard laravel authentication",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "emile-yamaji",
+            "email": "yamaji_daisuke@1stbit.co.jp"
+        }
+    ],
+    "require": {}
+}
