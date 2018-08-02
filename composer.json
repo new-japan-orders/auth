@@ -14,5 +14,14 @@
           "NewJapanOrders\\Auth\\": "src/"
         }
     },
-    "require": {}
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NewJapanOrders\\Auth\\ServiceProvider"
+            ]
+        }
+      },
+    "require": {
+        "illuminate/support": "^5.6"
+    }
 }
