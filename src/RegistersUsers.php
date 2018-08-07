@@ -21,11 +21,21 @@ trait RegistersUsers
     {
         $this->validator($request->all())->validate();
         $user = $this->create($request->all());
+        $user->confirmation_code = str_random(30);
+        $user->save();
 
         event(new Registered($user));
-        if (method_exists($user, 'sendEmailActivateNotification')) {
-            $user->sendEmailConfirmNotification();
+        if (method_exists($user, 'sendEmailConfirmationNotification')) {
+            $user->sendEmailConfirmationNotification($user->confirmation_code);
         }
-        return view('auth::complete');
+
+        return view('auth::complete')
+                ->with('user', $user);
+    }
+
+    public function confirmEmail($confirmation_code)
+    {
+        $test = \App\Models\User::where('confirmation_code', $confirmation_code)->first();
+        dd($test);
     }
 }

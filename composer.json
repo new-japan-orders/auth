@@ -19,9 +19,11 @@
             "providers": [
                 "NewJapanOrders\\Auth\\ServiceProvider"
             ]
+        },
+        "require": {
+            "illuminate/support": "^5.6",
+            "new-japan-orders/stub": "^1.0",
+            "new-japan-orders/arguments": "^1.0"
         }
-      },
-    "require": {
-        "illuminate/support": "^5.6"
     }
 }
