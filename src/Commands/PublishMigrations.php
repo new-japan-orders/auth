@@ -26,7 +26,7 @@ class PublishMigrations extends Command
     protected function copyMigrations()
     {
         $packagePath = __DIR__.'/../../';
-        $stubPath = $packagePath . 'stubs/';
+        $stubPath = $packagePath . 'stubs/migrations/';
         
         $stubFilePath = $stubPath."2017_02_02_232450_add_confirmation.php.stub";
         $outputFileName = "2017_02_02_232450_add_confirmation_to_".$this->model->plural_snake."_table.php";

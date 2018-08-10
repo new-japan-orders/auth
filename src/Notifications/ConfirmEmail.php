@@ -57,10 +57,9 @@ class ConfirmEmail extends Notification
         }
 
         return (new MailMessage)
-            ->subject(Lang::getFromJson('Reset Password Notification'))
-            ->line(Lang::getFromJson('You are receiving this email because we received a password reset request for your account.'))
-            ->action(Lang::getFromJson('Confirm Password'), url(config('app.url').route('confirm.email', $this->confirmation_code, false)))
-            ->line(Lang::getFromJson('If you did not request a password reset, no further action is required.'));
+            ->subject(Lang::get('auth::messages.Confirm Email Notification'))
+            ->action(Lang::get('auth::messages.Confirm Email'), url(config('app.url').route('confirm.email', $this->confirmation_code, false)))
+            ->markdown('auth::mails.confirm_email');
     }
 
     /**

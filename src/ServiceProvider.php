@@ -24,11 +24,16 @@ class ServiceProvider extends Provider {
             require $packagePath . 'routes/web.php';
         });
 
-        $this->app->singleton('command.nwo.auth.migration', function ($app) {
+        $this->loadTranslationsFrom($packagePath.'resources/lang', 'auth');
+
+        $this->app->singleton('command.nwo.auth.migrations', function ($app) {
             return $app['NewJapanOrders\Auth\Commands\PublishMigrations'];
         }); 
-        $this->commands('command.nwo.auth.migration');
-
+        $this->commands('command.nwo.auth.migrations');
+        $this->app->singleton('command.nwo.auth.views', function ($app) {
+            return $app['NewJapanOrders\Auth\Commands\PublishViews'];
+        }); 
+        $this->commands('command.nwo.auth.views');
 
 
         $this->loadViewsFrom($packagePath . 'resources/views', 'auth');
